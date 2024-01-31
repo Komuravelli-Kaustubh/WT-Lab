@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            border-collapse : collapse;
+            width : 100%;
+        }
+
+        th,td{
+            border: 1px solid black;
+            background-color : aqua;
+            text-align:  left;
+        }
+    </style>
+</head>
+<body>
+    <h3>JSON to TABLE</h3>
+    <button id="data">Click to get table</button>
+    <table id="studentTable">
+
+    </table>
+
+    <script>
+        const data={
+            "stud":[
+                {"name":"Ksb","age":18,"year":1,"sem":2},
+                {"name":"Rahul","age":20,"year":3,"sem":2}
+            ]
+        };
+
+        const btn = document.getElementById("data");
+        btn.addEventListener("click",()=>{
+            const table = document.getElementById("studentTable");
+
+            data.stud.forEach((st)=>{
+                const row = document.createElement("tr");
+                const nameField = document.createElement("td");
+                nameField.innerHTML=st.name;
+                const ageField = document.createElement("td");
+                ageField.innerHTML=st.age;
+                const yearField = document.createElement("td");
+                yearField.innerHTML=st.year;
+                const semField = document.createElement("td");
+                semField.innerHTML=st.sem;
+
+                row.appendChild(nameField);
+                row.appendChild(ageField);
+                row.appendChild(yearField);
+                row.appendChild(semField);
+
+                table.appendChild(row);
+
+            })
+        })
+    </script>
+</body>
+</html>

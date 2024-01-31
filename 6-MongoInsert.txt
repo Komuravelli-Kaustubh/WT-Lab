@@ -1,0 +1,13 @@
+1.show dbs;
+
+2. use student;
+
+3. db.studentinfo.insert({name:"john",id:"20bd1a05051",course:"b.tech",branch:"cse"})
+
+4. db.studentinfo.insert({name:"reena",id:"20bd1a0502",course:"M.tech",branch:"it"})
+
+5. db.studentinfo.insert({name:"ram",id:"20bd1a0503",course:"b.tech",branch:"cse"})
+
+
+view studentinfo collection:
+6. db.studentinfo.find({})

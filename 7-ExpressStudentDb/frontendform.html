@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details Form</title>
+</head>
+<body>
+  <h1>Student Details Form</h1>
+  <form id="studentForm">
+    <label for="rollNumber">Enter Roll Number:</label>
+    <input type="text" id="rollNumber" name="rollNumber" required>
+    <button type="submit">Get Details</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('studentForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const rollNumber = document.getElementById('rollNumber').value;
+
+      fetch('/getStudentDetails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ rollNumber })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
+</body>
+</html>
