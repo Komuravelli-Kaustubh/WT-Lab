@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student CRUD App</title>
+</head>
+<body>
+  <h1>Students</h1>
+  <ul>
+    <% students.forEach(function(student) { %>
+      <li>
+        <%= student.name %>, <%= student.age %> years old, Grade: <%= student.grade %>
+        <a href="/edit/<%= student.id %>">Edit</a>
+        <a href="/delete/<%= student.id %>">Delete</a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/new">Add New Student</a>
+</body>
+</html>
